@@ -17,9 +17,14 @@ namespace Instanyam.Jobs.Activities
             log.LogInformation($"Extracting Tags from image: {image}");
 
             // simulate calling Cognitive Services Vision API to extract Tags from image...
-            await Task.Delay(10000);
+            await Task.Delay(6000);
 
-            return "Veggie, Broccoli, Healthy";
+            if (image.StartsWith("food", StringComparison.InvariantCultureIgnoreCase))
+            {
+                return "Food, Veggie, Broccoli, Healthy";
+            }
+
+            return "Nature, Sea";
         }
     }
 }
