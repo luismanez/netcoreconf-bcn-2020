@@ -1,19 +1,15 @@
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
 using Instanyam.Jobs.Common;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.DurableTask;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Instanyam.Jobs.Orchestrators
 {
     public static class ProcessImageOrchestrator
     {
-        [FunctionName("ProcessImageOrchestrator")]
-        public static async Task<List<string>> RunOrchestrator(
+        [FunctionName(Constants.FunctionsNaming.ProcessImageOrchestrator)]
+        public static async Task<List<string>> ProcessImage(
             [OrchestrationTrigger] IDurableOrchestrationContext context)
         {
             var image = context.GetInput<string>();
