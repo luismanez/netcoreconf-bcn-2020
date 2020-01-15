@@ -28,9 +28,9 @@ namespace Instanyam.Jobs.Orchestrators
                 indexTagTasks.Add(task);
             }
 
-            var indexTagsResults = await Task.WhenAll(indexTagTasks);
+            await Task.WhenAll(indexTagTasks);
             
-            return indexTagsResults.ToList();
+            return tags;
         }
     }
 }

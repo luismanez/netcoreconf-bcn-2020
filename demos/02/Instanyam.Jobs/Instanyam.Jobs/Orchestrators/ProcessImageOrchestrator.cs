@@ -24,11 +24,13 @@ namespace Instanyam.Jobs.Orchestrators
                     image);
 
             var imageApproved = true;
-            if (!indexTagResults.Contains("food"))
+            if (!indexTagResults.Contains("Food"))
             {
                 // Human interaction pattern: we wait for Image human review
                 // usually, we here send first some kind of Notification that Human approval is required
                 // and then we wait for an External Event (or timeout)
+                // Run this to send an external event to this orchestrator (true / false to approve/reject):
+                // curl -X POST -d "true" "http://localhost:7071/runtime/webhooks/durabletask/instances/975c3b80-b0c2-47cc-b045-388a0dc2a7f1/raiseEvent/ApprovalEvent?taskHub=TestHubName&connection=Storage&code=edB8GO8I5bbq3Era86TalmoP6MP2ifnarCfc6vNlvFFb3SZ4VYwNWg==" -H "Content-Type: application/json"
                 using (var timeoutCts = new CancellationTokenSource())
                 {
                     var dueTime = context.CurrentUtcDateTime.AddSeconds(30); // just for demo

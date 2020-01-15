@@ -33,13 +33,14 @@ namespace Instanyam.Jobs.Starters
 
             log.LogInformation($"About to start orchestration for {image}");
 
-            var instanceId = Guid.NewGuid().ToString();
-            var orchestrationId = await starter.StartNewAsync(
+            const string instanceId = "975c3b80-b0c2-47cc-b045-388a0dc2a7f1";
+            
+            await starter.StartNewAsync(
                 Constants.FunctionsNaming.ProcessImageOrchestrator, 
                 instanceId, 
                 image);
 
-            return starter.CreateCheckStatusResponse(req, orchestrationId);
+            return starter.CreateCheckStatusResponse(req, instanceId);
         }
     }
 }
