@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "674b6844-d514-42a9-b94c-19410f7697f5",
+		"name": "_NetCoreConf",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Check Orchestrator Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7071/runtime/webhooks/durabletask/instances/975c3b80-b0c2-47cc-b045-388a0dc2a7f1?taskHub=TestHubName&connection=Storage&code=edB8GO8I5bbq3Era86TalmoP6MP2ifnarCfc6vNlvFFb3SZ4VYwNWg==",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"runtime",
+						"webhooks",
+						"durabletask",
+						"instances",
+						"975c3b80-b0c2-47cc-b045-388a0dc2a7f1"
+					],
+					"query": [
+						{
+							"key": "taskHub",
+							"value": "TestHubName"
+						},
+						{
+							"key": "connection",
+							"value": "Storage"
+						},
+						{
+							"key": "code",
+							"value": "edB8GO8I5bbq3Era86TalmoP6MP2ifnarCfc6vNlvFFb3SZ4VYwNWg=="
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start Process Image Waits Approval",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7071/api/ProcessImageStarter?image=cat.png",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"ProcessImageStarter"
+					],
+					"query": [
+						{
+							"key": "image",
+							"value": "cat.png"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start Process Foodie Image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7071/api/ProcessImageStarter?image=food.png",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"ProcessImageStarter"
+					],
+					"query": [
+						{
+							"key": "image",
+							"value": "food.png"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Raise Approval Event \"Approve\"",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "true",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7071/runtime/webhooks/durabletask/instances/975c3b80-b0c2-47cc-b045-388a0dc2a7f1/raiseEvent/ApprovalEvent?taskHub=TestHubName&connection=Storage&code=edB8GO8I5bbq3Era86TalmoP6MP2ifnarCfc6vNlvFFb3SZ4VYwNWg==",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"runtime",
+						"webhooks",
+						"durabletask",
+						"instances",
+						"975c3b80-b0c2-47cc-b045-388a0dc2a7f1",
+						"raiseEvent",
+						"ApprovalEvent"
+					],
+					"query": [
+						{
+							"key": "taskHub",
+							"value": "TestHubName"
+						},
+						{
+							"key": "connection",
+							"value": "Storage"
+						},
+						{
+							"key": "code",
+							"value": "edB8GO8I5bbq3Era86TalmoP6MP2ifnarCfc6vNlvFFb3SZ4VYwNWg=="
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Raise Approval Event \"Reject\"",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "false",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7071/runtime/webhooks/durabletask/instances/975c3b80-b0c2-47cc-b045-388a0dc2a7f1/raiseEvent/ApprovalEvent?taskHub=TestHubName&connection=Storage&code=edB8GO8I5bbq3Era86TalmoP6MP2ifnarCfc6vNlvFFb3SZ4VYwNWg==",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"runtime",
+						"webhooks",
+						"durabletask",
+						"instances",
+						"975c3b80-b0c2-47cc-b045-388a0dc2a7f1",
+						"raiseEvent",
+						"ApprovalEvent"
+					],
+					"query": [
+						{
+							"key": "taskHub",
+							"value": "TestHubName"
+						},
+						{
+							"key": "connection",
+							"value": "Storage"
+						},
+						{
+							"key": "code",
+							"value": "edB8GO8I5bbq3Era86TalmoP6MP2ifnarCfc6vNlvFFb3SZ4VYwNWg=="
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
